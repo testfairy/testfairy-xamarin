@@ -1,0 +1,21 @@
+%YAML 1.2
+---
+name: TestFairy
+id: TestFairy.Xamarin-iOS
+publisher: TestFairy
+license: License.md
+icons: 
+  - TestFairy.Xamarin-iOS_128x128.png
+  - TestFairy.Xamarin-iOS_512x512.png
+publisher-url: https://www.testfairy.com
+libraries: 
+  ios: ../lib/ios-unified/TestFairy.iOS.dll
+summary: SUMMARY
+details: Details.md
+getting-started: GettingStarted.md
+version: 1.0.1
+no_build: true
+samples:
+  - name: "iOS Unified Sample"
+    path: ../samples/TestFairySampleiOS/TestFairySampleiOS.sln
+    configuration: "Debug|iPhone"
