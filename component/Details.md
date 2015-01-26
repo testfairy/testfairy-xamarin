@@ -1,5 +1,3 @@
-# TestFairy for iOS
-
 TestFairy is a powerful app testing platform which helps iOS developers distribute their apps and see exactly how testers interact with it, by providing back a video recording, technical metrics and logs.
 
 ## Features
