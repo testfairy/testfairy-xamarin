@@ -6,7 +6,7 @@ TestFairy is a powerful app testing platform which helps iOS developers distribu
 
 * Coverage - Get a bird's eye view of which portions of your app have been tested. Which features are unnoticeable and what needs to be improved.
 
-* Technical Details - CPU consumption, memory allocatios, network bandwidth usage, OpenGL framerates, GPS locations and others. These charts are
+* Technical Details - CPU consumption, memory allocations, network bandwidth usage, OpenGL framerate, GPS locations and others. These charts are
 available in each session. Understand how your code performs on various real devices.
 
 * Remote Logging - Every NSLOG() written by your app is captured and sent to server. See real logs from production!
