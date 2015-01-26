@@ -10,7 +10,7 @@ icons:
 publisher-url: https://www.testfairy.com
 libraries: 
   ios: ../lib/ios-unified/TestFairy.iOS.dll
-summary: SUMMARY
+summary: TestFairy records video when your testers test your app.
 details: Details.md
 getting-started: GettingStarted.md
 version: 1.0.1
