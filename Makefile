@@ -8,7 +8,13 @@ lib/ios-unified/TestFairy.iOS.dll:
 	unzip -q -d lib/ios-unified TestFairySDK-1.0-Xamarin-Unified.zip TestFairy.iOS.dll
 	-rm -f TestFairySDK-1.0-Xamarin-Unified.zip
 
-$(OUTPUT): lib/ios-unified/TestFairy.iOS.dll
+bin/xamarin-component.exe:
+	# Fetch latest xamarin-component executable
+	wget https://components.xamarin.com/submit/xpkg
+	-mkdir bin
+	unzip -d bin xpkg xamarin-component.exe
+
+$(OUTPUT): bin/xamarin-component.exe lib/ios-unified/TestFairy.iOS.dll
 	mono bin/xamarin-component.exe package component
 
 	# Make sure the .dll made it into the .xam package
