@@ -93,8 +93,15 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="PLCrashReporterUnifiedBinding">
+      <HintPath>..\Components\xamarin-insights-1.8.2\lib\ios-unified\PLCrashReporterUnifiedBinding.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Insights">
+      <HintPath>..\Components\xamarin-insights-1.8.2\lib\ios-unified\Xamarin.Insights.dll</HintPath>
+    </Reference>
     <Reference Include="TestFairy.iOS">
       <HintPath>..\..\..\lib\ios-unified\TestFairy.iOS.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -117,4 +124,10 @@
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <ItemGroup>
+    <XamarinComponentReference Include="xamarin-insights">
+      <Version>1.8.2</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+  </ItemGroup>
 </Project>

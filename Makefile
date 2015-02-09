@@ -1,4 +1,4 @@
-OUTPUT=component/TestFairy.Xamarin-iOS-1.2.0.xam
+OUTPUT=component/TestFairy.Xamarin-iOS-1.3.0.xam
 
 all: $(OUTPUT)
 

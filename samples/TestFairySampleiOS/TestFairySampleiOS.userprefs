@@ -1,1 +1,30 @@
-﻿<Properties StartupItem="TestFairySampleiOS/TestFairySampleiOS.csproj" />
+﻿<Properties StartupItem="TestFairySampleiOS/TestFairySampleiOS.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Gil Megidish’s iPhone" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TestFairySampleiOS/TestFairySampleiOSViewController.cs">
+    <Files>
+      <File FileName="TestFairySampleiOS/Main.cs" Line="26" Column="26" />
+      <File FileName="TestFairySampleiOS/AppDelegate.cs" Line="75" Column="75" />
+      <File FileName="TestFairySampleiOS/TestFairySampleiOSViewController.cs" Line="18" Column="18" />
+      <File FileName="TestFairySampleiOS/Resources/Images.xcassets/AppIcons.appiconset/Contents.json" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="TestFairySampleiOS" expanded="True">
+            <Node name="References" expanded="True" selected="True" />
+            <Node name="ComponentReferenceFolder" expanded="True" />
+            <Node name="Resources" expanded="True">
+              <Node name="Images.xcassets" expanded="True">
+                <Node name="AppIcons.appiconset" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Foundation;
 using UIKit;
 
+using Xamarin;
 using TestFairyLib;
 
 namespace TestFairySampleiOS
@@ -26,6 +27,18 @@ namespace TestFairySampleiOS
 		{
 			// grab your app token from https://app.testfairy.com/settings/ 
 			TestFairy.Begin ("e27cf8c46bb25d8986e21915d700e493b268df0b");
+
+			NSTimer timer = null;
+			timer = NSTimer.CreateRepeatingScheduledTimer (TimeSpan.FromSeconds(1.0), delegate {
+				if (TestFairy.GetSessionUrl() != null) {
+					Insights.Track("TestFairy", new Dictionary<string, string> {
+						{"sessionUrl", TestFairy.GetSessionUrl()}
+					});
+						
+					timer.Invalidate ();
+				}
+			});
+	
 			return true;
 		}
 		
