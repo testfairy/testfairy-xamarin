@@ -23,6 +23,11 @@ For help, please email support at support@testfairy.com
 
 ## Release Notes
 
+**Version 1.3.0**
+
+* Better locating window being recorded in both legacy and modern apps.
+* Fixed random crash when capturing keyboard in multi-window iOS8 apps.
+
 **Version 1.2.0**
 
 * Added GetSessionUrl () method.
