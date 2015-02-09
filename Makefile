@@ -1,12 +1,13 @@
-OUTPUT=component/TestFairy.Xamarin-iOS-1.2.0.xam
+VERSION=1.3.0
+OUTPUT=component/TestFairy.Xamarin-iOS-${VERSION}.xam
 
 all: $(OUTPUT)
 
 lib/ios-unified/TestFairy.iOS.dll:
 	mkdir -p lib/ios-unified
-	curl -s -o TestFairySDK-1.2-Xamarin-Unified.zip https://app.testfairy.com/ios-sdk/TestFairySDK-1.2-Xamarin-Unified.zip
-	unzip -q -d lib/ios-unified TestFairySDK-1.2-Xamarin-Unified.zip TestFairy.iOS.dll
-	-rm -f TestFairySDK-1.2-Xamarin-Unified.zip
+	curl -s -o TestFairySDK-${VERSION}-Xamarin-Unified.zip https://app.testfairy.com/ios-sdk/TestFairySDK-${VERSION}-Xamarin-Unified.zip
+	unzip -q -d lib/ios-unified TestFairySDK-${VERSION}-Xamarin-Unified.zip TestFairy.iOS.dll
+	-rm -f TestFairySDK-${VERSION}-Xamarin-Unified.zip
 
 bin/xamarin-component.exe:
 	# Fetch latest xamarin-component executable
