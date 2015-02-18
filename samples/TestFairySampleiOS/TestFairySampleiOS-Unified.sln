@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFairySampleiOS", "TestFairySampleiOS\TestFairySampleiOS.csproj", "{E01131EB-0166-4322-A06B-A32ED7E4E12E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFairySampleiOS", "TestFairySampleiOS\TestFairySampleiOS-Unified.csproj", "{E01131EB-0166-4322-A06B-A32ED7E4E12E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
