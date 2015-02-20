@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 
+#if ! __UNIFIED__
+using MonoTouch.Foundation;
+using MonoTouch.UIKit;
+#else
 using Foundation;
 using UIKit;
+#endif
 
 namespace TestFairySampleiOS
 {

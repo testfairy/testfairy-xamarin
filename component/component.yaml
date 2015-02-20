@@ -9,14 +9,19 @@ icons:
   - TestFairy.Xamarin-iOS_512x512.png
 publisher-url: https://www.testfairy.com
 libraries: 
+  ios: ../lib/ios-classic/TestFairy.iOS.dll
   ios-unified: ../lib/ios-unified/TestFairy.iOS.dll
 summary: TestFairy records video when your testers test your app.
 details: Details.md
 getting-started: GettingStarted.md
-version: 1.3.0
+version: 1.3.1
 no_build: true
 samples:
+  - name: "iOS Classic Sample"
+    path: ../samples/TestFairySampleiOS/TestFairySampleiOS-Classic.sln
+    configuration: "Debug|iPhone"
+    nobuild: true
   - name: "iOS Unified Sample"
-    path: ../samples/TestFairySampleiOS/TestFairySampleiOS.sln
+    path: ../samples/TestFairySampleiOS/TestFairySampleiOS-Unified.sln
     configuration: "Debug|iPhone"
     nobuild: true

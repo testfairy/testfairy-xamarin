@@ -1,1 +1,17 @@
-﻿<Properties StartupItem="TestFairySampleiOS/TestFairySampleiOS.csproj" />
+﻿<Properties StartupItem="TestFairySampleiOS/TestFairySampleiOS.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.Gil Megidish’s iPhone" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TestFairySampleiOS/TestFairySampleiOSViewController.cs">
+    <Files>
+      <File FileName="TestFairySampleiOS/Main.cs" Line="1" Column="1" />
+      <File FileName="TestFairySampleiOS/AppDelegate.cs" Line="8" Column="8" />
+      <File FileName="TestFairySampleiOS/TestFairySampleiOSViewController.cs" Line="51" Column="51" />
+      <File FileName="../../../../../../Library/Frameworks/Mono.framework/Versions/3.12.0/lib/mono/4.5/Microsoft.Common.targets" Line="1" Column="1" />
+      <File FileName="TestFairySampleiOS/Resources/Images.xcassets/AppIcons.appiconset/Contents.json" />
+      <File FileName="TestFairySampleiOS/TestFairySampleiOSViewController.designer.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

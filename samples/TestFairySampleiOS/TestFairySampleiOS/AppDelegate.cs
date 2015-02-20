@@ -2,8 +2,13 @@
 using System.Linq;
 using System.Collections.Generic;
 
+#if ! __UNIFIED__
+using MonoTouch.Foundation;
+using MonoTouch.UIKit;
+#else
 using Foundation;
 using UIKit;
+#endif
 
 using TestFairyLib;
 

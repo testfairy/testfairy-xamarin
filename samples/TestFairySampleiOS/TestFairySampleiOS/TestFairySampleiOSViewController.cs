@@ -1,10 +1,17 @@
 ﻿using System;
 using System.Drawing;
 
+#if ! __UNIFIED__
+using MonoTouch.Foundation;
+using MonoTouch.UIKit;
+using MonoTouch.CoreGraphics;
+using MonoTouch.CoreAnimation;
+#else
 using Foundation;
 using UIKit;
 using CoreGraphics;
 using CoreAnimation;
+#endif
 
 using TestFairyLib;
 
