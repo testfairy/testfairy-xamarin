@@ -6,6 +6,7 @@
 //
 
 #if ! __UNIFIED__
+using MonoTouch.Foundation;
 #else
 using Foundation;
 using UIKit;
