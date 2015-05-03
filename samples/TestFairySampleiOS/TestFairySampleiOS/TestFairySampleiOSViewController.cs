@@ -59,7 +59,11 @@ namespace TestFairySampleiOS
 			base.TouchesMoved (touches, evt);
 
 			UITouch touch = touches.AnyObject as UITouch;
-			CGPoint point = touch.LocationInView (View);
+			#if __UNIFIED__
+			CGPoint = touch.LocationInView (View);
+			#else
+			PointF point = touch.LocationInView (View);
+			#endif
 			box.Layer.Transform = CATransform3D.Identity;
 			box.Frame = new Rectangle ((int)(point.X + BoxStride)/2, (int)(point.Y + BoxStride)/2, BoxStride, BoxStride);
 			box.Layer.Transform = CATransform3D.MakeRotation ((float)(angle / 180.0 * Math.PI), 0, 0, 1);
