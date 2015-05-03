@@ -60,7 +60,7 @@ namespace TestFairySampleiOS
 
 			UITouch touch = touches.AnyObject as UITouch;
 			#if __UNIFIED__
-			CGPoint = touch.LocationInView (View);
+			CGPoint point = touch.LocationInView (View);
 			#else
 			PointF point = touch.LocationInView (View);
 			#endif
