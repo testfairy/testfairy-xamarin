@@ -37,3 +37,4 @@ clean:
 	-rm -f lib/ios-unified/TestFairy.iOS.dll 
 	-rm -f lib/ios-classic/TestFairy.iOS.dll 
 	-rm -rf samples/TestFairySampleiOS/TestFairySampleiOS/obj
+	-rm -rf samples//TestFairySampleiOS/TestFairySampleiOS/bin
