@@ -1,4 +1,4 @@
-VERSION=1.4.2
+VERSION=1.4.4
 OUTPUT=component/TestFairy.Xamarin-iOS-${VERSION}.xam
 
 all: $(OUTPUT)
