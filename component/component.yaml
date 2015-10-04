@@ -14,7 +14,7 @@ libraries:
 summary: TestFairy records video when your testers test your app.
 details: Details.md
 getting-started: GettingStarted.md
-version: 1.4.4
+version: 1.5.0
 no_build: true
 samples:
   - name: "iOS Classic Sample"
