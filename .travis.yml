@@ -13,5 +13,8 @@ install:
  - sudo installer -pkg "monotouch-8.6.0.51.pkg" -target /
 
 script:
- - echo "win!"
+ - sed -i '' -E "s/VERSION=.+/VERSION=${TRAVIS_TAG}/" xamarin-component/Makefile
+ - make
+
+
  
