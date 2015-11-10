@@ -15,7 +15,7 @@ deploy:
   provider: releases
   api_key:
     secure: zyI2NhevUN1xNI7I7Dfs2zFQoBtBeGKx5Ooj6lE/m1PgW7+MWbFzzgTQiNIbIQ7S9YkBlLYPYRdzTbiBMvuMCwzS17evQzoqcxEMiusJN46X0cPlDL/Z81CdGWbvKkYkHCeezoU9wZJuOSsmI7x/uL8cCR/MTFoqGZFSvNc1FUY=
-  file: component/TestFairy.Xamarin-iOS-{$TRAVIS_TAG}.xam
+  file: component/TestFairy.Xamarin-iOS-${TRAVIS_TAG}.xam
   skip_cleanup: true
   on:
     tags: true
