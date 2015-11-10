@@ -1,5 +1,6 @@
 language: objective-c
 osx_image: xcode7
+
 install:
   - MONO_VERSION="3.12.0"
   - wget "http://download.mono-project.com/archive/${MONO_VERSION}/macos-10-x86/MonoFramework-MDK-${MONO_VERSION}.macos10.xamarin.x86.pkg"
@@ -8,14 +9,14 @@ install:
   - sudo installer -pkg "monotouch-8.6.0.51.pkg" -target /
 
 script:
-  - sed -i '' -E "s/VERSION=.+/VERSION=${TRAVIS_TAG}/" xamarin-component/Makefile
   - make
-  - find . -ls
 
 deploy:
   provider: releases
   api_key:
     secure: zyI2NhevUN1xNI7I7Dfs2zFQoBtBeGKx5Ooj6lE/m1PgW7+MWbFzzgTQiNIbIQ7S9YkBlLYPYRdzTbiBMvuMCwzS17evQzoqcxEMiusJN46X0cPlDL/Z81CdGWbvKkYkHCeezoU9wZJuOSsmI7x/uL8cCR/MTFoqGZFSvNc1FUY=
-  file: foo.xam
+  file: component/TestFairy.Xamarin-iOS-{$TRAVIS_TAG}.xam
+  skip_cleanup: true
   on:
-    repo: testfairy/xamarin-component
+    tags: true
+
