@@ -1,0 +1,17 @@
+language: objective-c
+
+osx_image: xcode7
+
+install:
+ - # install mono
+ - MONO_VERSION="3.12.0"
+ - wget "http://download.mono-project.com/archive/${MONO_VERSION}/macos-10-x86/MonoFramework-MDK-${MONO_VERSION}.macos10.xamarin.x86.pkg"
+ - sudo installer -pkg "MonoFramework-MDK-${MONO_VERSION}.macos10.xamarin.x86.pkg" -target /
+ -
+ - # install monotouch
+ - wget "http://download.xamarin.com/MonoTouch/Mac/monotouch-8.6.0.51.pkg"
+ - sudo installer -pkg "monotouch-8.6.0.51.pkg" -target /
+
+script:
+ - echo "win!"
+ 
