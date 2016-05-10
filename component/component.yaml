@@ -1,27 +1,27 @@
 %YAML 1.2
 ---
 name: TestFairy
-id: TestFairy.Xamarin-iOS
+id: TestFairy.Xamarin
 publisher: TestFairy
-license: License.md
-icons:
-  - TestFairy.Xamarin-iOS_128x128.png
-  - TestFairy.Xamarin-iOS_512x512.png
 publisher-url: https://www.testfairy.com
-libraries:
-  ios: ../lib/ios-classic/TestFairy.iOS.dll
-  ios-unified: ../lib/ios-unified/TestFairy.iOS.dll
 summary: TestFairy records video when your testers test your app.
-details: Details.md
+license: ../License.txt
 getting-started: GettingStarted.md
-version: 0.0.0
+details: Details.md
+version: 2.0.1
 no_build: true
+icons:
+  - ../icons/TestFairy.Xamarin_128x128.png
+  - ../icons/TestFairy.Xamarin_512x512.png
+libraries:
+  ios: ../output/TestFairy.iOS.dll
+  android: ../output/TestFairy.Android.dll
 samples:
-  - name: "iOS Classic Sample"
-    path: ../samples/TestFairySampleiOS/TestFairySampleiOS-Classic.sln
-    configuration: "Debug|iPhone"
+  - name: "Android Sample"
+    path: ../sample/TestFairy/TestFairy.sln
+    configuration: "Debug"
     nobuild: true
-  - name: "iOS Unified Sample"
-    path: ../samples/TestFairySampleiOS/TestFairySampleiOS-Unified.sln
+  - name: "iOS Sample"
+    path: ../sample/TestFairy/TestFairy.sln
     configuration: "Debug|iPhone"
     nobuild: true
