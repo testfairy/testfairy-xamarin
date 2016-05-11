@@ -9,6 +9,8 @@ XAMARIN_ANDROID_VERSION="6.0.3-5"
 XAMARIN_IOS_VERSION="9.6.1.9"
 
 all: nuget component
+	zip -j9 output/TestFairy.Xamarin-Android.${TRAVIS_TAG}.zip output/TestFairy.Android.dll
+	zip -j9 output/TestFairy.Xamarin-iOS.${VERSION}.zip output/TestFairy.iOS.dll
 
 clean:
 	xbuild /p:Configuration=Release /t:Clean binding/TestFairy.Android/TestFairy.Android.csproj
@@ -19,13 +21,11 @@ TestFairy.iOS.dll:
 	mkdir -p output
 	xbuild /p:Configuration=Release binding/TestFairy.iOS/TestFairy.iOS.csproj
 	cp binding/TestFairy.iOS/bin/Release/TestFairy.iOS.dll output/.
-	zip -j9 output/TestFairy.Xamarin-iOS.${VERSION}.zip output/TestFairy.iOS.dll
 
 TestFairy.Android.dll:
 	mkdir -p output
 	xbuild /p:Configuration=Release binding/TestFairy.Android/TestFairy.Android.csproj
 	cp binding/TestFairy.Android/bin/Release/TestFairy.Android.dll output/.
-	zip -j9 output/TestFairy.Xamarin-Android.${VERSION}.zip output/TestFairy.Android.dll
 
 component: TestFairy.Android.dll TestFairy.iOS.dll
 	sed -i '' "s/^version:.*/version: ${VERSION}/" component/component.yaml
