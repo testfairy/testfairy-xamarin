@@ -3,7 +3,8 @@ VERSION=2.0.0
 else
 VERSION=${TRAVIS_TAG}
 endif
-MONO_VERSION="3.12.0"
+MONO_VERSION="4.4.0"
+XAMARIN_VERSION="2.8.0.58"
 
 all: nuget component
 
@@ -33,8 +34,10 @@ nuget: TestFairy.Android.dll TestFairy.iOS.dll
 
 install:
 	wget "http://nuget.org/nuget.exe"
-	wget "http://download.mono-project.com/archive/${MONO_VERSION}/macos-10-x86/MonoFramework-MDK-${MONO_VERSION}.macos10.xamarin.x86.pkg"
-	sudo installer -pkg "MonoFramework-MDK-${MONO_VERSION}.macos10.xamarin.x86.pkg" -target /
+	wget "http://download.mono-project.com/archive/${MONO_VERSION}/macos-10-universal/MonoFramework-MDK-${MONO_VERSION}.macos10.xamarin.universal.pkg"
+	wget "http://download.xamarin.com/XamarinforMac/Mac/xamarin.mac-${XAMARIN_VERSION}.pkg"
+	sudo installer -pkg "MonoFramework-MDK-${MONO_VERSION}.macos10.xamarin.universal.pkg" -target /
+	sudo installer -pkg "xamarin.mac-${XAMARIN_VERSION}.pkg" -target / 
 	curl -s -L -o xpkg.zip https://components.xamarin.com/submit/xpkg
 	unzip xpkg.zip xamarin-component.exe
 	rm xpkg.zip
