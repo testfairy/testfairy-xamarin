@@ -4,7 +4,9 @@ else
 VERSION=${TRAVIS_TAG}
 endif
 MONO_VERSION="4.4.0"
-XAMARIN_VERSION="2.8.0.58"
+XAMARIN_MAC_VERSION="2.8.0.58"
+XAMARIN_ANDROID_VERSION="6.0.3-5"
+XAMARIN_IOS_VERSION="9.6.1.9"
 
 all: nuget component
 
@@ -35,9 +37,13 @@ nuget: TestFairy.Android.dll TestFairy.iOS.dll
 install:
 	wget "http://nuget.org/nuget.exe"
 	wget "http://download.mono-project.com/archive/${MONO_VERSION}/macos-10-universal/MonoFramework-MDK-${MONO_VERSION}.macos10.xamarin.universal.pkg"
-	wget "http://download.xamarin.com/XamarinforMac/Mac/xamarin.mac-${XAMARIN_VERSION}.pkg"
-	sudo installer -pkg "MonoFramework-MDK-${MONO_VERSION}.macos10.xamarin.universal.pkg" -target /
-	sudo installer -pkg "xamarin.mac-${XAMARIN_VERSION}.pkg" -target / 
+	wget "http://download.xamarin.com/XamarinforMac/Mac/xamarin.mac-${XAMARIN_MAC_VERSION}.pkg"
+	wget "http://download.xamarin.com/MonoforAndroid/Mac/xamarin.android-${XAMARIN_ANDROID_VERSION}.pkg"
+	wget "http://download.xamarin.com/MonoTouch/Mac/xamarin.ios-${XAMARIN_IOS_VERSION}.pkg"
 	curl -s -L -o xpkg.zip https://components.xamarin.com/submit/xpkg
+	sudo installer -pkg "MonoFramework-MDK-${MONO_VERSION}.macos10.xamarin.universal.pkg" -target /
+	sudo installer -pkg "xamarin.mac-${XAMARIN_MAC_VERSION}.pkg" -target /
+	sudo installer -pkg "xamarin.ios-${XAMARIN_IOS_VERSION}.pkg" -target /
+	sudo installer -pkg "xamarin.android-${XAMARIN_ANDROID_VERSION}.pkg" -target /
 	unzip xpkg.zip xamarin-component.exe
 	rm xpkg.zip
