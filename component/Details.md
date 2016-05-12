@@ -20,20 +20,3 @@ available in each session. Understand how your code performs on various real dev
 ## Support
 
 For help, please email support at support@testfairy.com 
-
-## Release Notes
-
-**Version 1.3.0**
-
-* Better locating window being recorded in both legacy and modern apps.
-* Fixed random crash when capturing keyboard in multi-window iOS8 apps.
-
-**Version 1.2.0**
-
-* Added GetSessionUrl () method.
-* Now sending CFBundleShortVersionString for better uniqueness.
-
-**Version 1.0.1**
-
-* Support for Unified API.
-
