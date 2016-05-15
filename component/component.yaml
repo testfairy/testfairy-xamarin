@@ -14,8 +14,8 @@ icons:
   - ../icons/TestFairy.Xamarin_128x128.png
   - ../icons/TestFairy.Xamarin_512x512.png
 libraries:
-  ios: ../output/TestFairy.iOS.dll
-  android: ../output/TestFairy.Android.dll
+  ios-unified: ../lib/ios-unified/TestFairy.iOS.dll
+  android: ../lib/android/TestFairy.Android.dll
 samples:
   - name: "Android Sample"
     path: ../sample/TestFairy/TestFairy.sln

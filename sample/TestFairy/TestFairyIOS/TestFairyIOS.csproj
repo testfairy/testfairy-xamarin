@@ -78,7 +78,7 @@
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
     <Reference Include="TestFairy.iOS">
-      <HintPath>..\..\..\binding\TestFairy.iOS\bin\Release\TestFairy.iOS.dll</HintPath>
+      <HintPath>..\..\..\lib\ios-unified\TestFairy.iOS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

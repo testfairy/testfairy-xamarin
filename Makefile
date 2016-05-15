@@ -15,6 +15,7 @@ all: nuget component
 clean:
 	xbuild /p:Configuration=Release /t:Clean binding/TestFairy.Android/TestFairy.Android.csproj
 	xbuild /p:Configuration=Release /t:Clean binding/TestFairy.iOS/TestFairy.iOS.csproj
+	rm -rf lib
 	rm -rf output
 
 TestFairy.iOS.dll:
@@ -28,6 +29,10 @@ TestFairy.Android.dll:
 	cp binding/TestFairy.Android/bin/Release/TestFairy.Android.dll output/.
 
 component: TestFairy.Android.dll TestFairy.iOS.dll
+	mkdir -p lib/android
+	mkdir -p lib/ios-unified
+	cp binding/TestFairy.Android/bin/Release/TestFairy.Android.dll lib/android/.
+	cp binding/TestFairy.iOS/bin/Release/TestFairy.iOS.dll lib/ios-unified/.
 	sed -i '' "s/^version:.*/version: ${VERSION}/" component/component.yaml
 	mono xamarin-component.exe package component
 	mv component/TestFairy.Xamarin-${VERSION}.xam output/.
