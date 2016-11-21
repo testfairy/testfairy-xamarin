@@ -6,14 +6,14 @@ using Foundation;
 // > sharpie bind -output TestFairy -namespace TestFairyLib -sdk iphoneos10.1 TestFairy.h
 namespace TestFairyLib
 {
-	static class CFunctions
+	public static class CFunctions
 	{
 		// extern void TFLog (NSString *format, ...) __attribute__((format(NSString, 1, 2)));
 		[DllImport ("__Internal")]
-		static extern void TFLog (NSString format, IntPtr varArgs);
+		public static extern void TFLog (NSString format, IntPtr varArgs);
 
 		// extern void TFLogv (NSString *format, va_list arg_list);
 		[DllImport ("__Internal")]
-		static extern unsafe void TFLogv (NSString format, sbyte* arg_list);
+		public static extern unsafe void TFLogv (NSString format, sbyte* arg_list);
 	}
 }
