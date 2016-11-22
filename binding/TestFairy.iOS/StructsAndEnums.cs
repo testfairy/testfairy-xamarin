@@ -10,10 +10,10 @@ namespace TestFairyLib
 	{
 		// extern void TFLog (NSString *format, ...) __attribute__((format(NSString, 1, 2)));
 		[DllImport ("__Internal")]
-		public static extern void TFLog (NSString format, IntPtr varArgs);
+		public static extern void TFLog (IntPtr format, string arg0);
 
 		// extern void TFLogv (NSString *format, va_list arg_list);
 		[DllImport ("__Internal")]
-		public static extern unsafe void TFLogv (NSString format, sbyte* arg_list);
+		public static extern unsafe void TFLogv (IntPtr format, sbyte* arg_list);
 	}
 }
