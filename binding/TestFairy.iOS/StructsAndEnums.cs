@@ -16,4 +16,15 @@ namespace TestFairyLib
 		[DllImport ("__Internal")]
 		public static extern unsafe void TFLogv (IntPtr format, sbyte* arg_list);
 	}
+
+	public sealed class TFLog
+	{
+		public static void v(string format, params object[] arg)
+		{
+			using (var nsFormat = new NSString(string.Format(format, arg)))
+			{
+				CFunctions.TFLog(nsFormat.Handle, "");
+			}
+		}
+	}
 }
