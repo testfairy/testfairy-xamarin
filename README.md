@@ -1,7 +1,7 @@
 # TestFairy plugin for Xamarin
 
 For class reference, installation and more information, please visit 
-[Xamarin integration document](http://docs.testfairy.com/Integrations/Xamarin.html) on TestFairy.
+[Xamarin integration document](http://docs.testfairy.com/Platforms/Xamarin.html) on TestFairy.
 
 License
 =======
