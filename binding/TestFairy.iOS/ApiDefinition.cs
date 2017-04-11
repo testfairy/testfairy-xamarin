@@ -87,6 +87,11 @@ namespace TestFairyLib
 		[Export ("resume")]
 		void Resume ();
 
+		// +(void)stop;
+		[Static]
+		[Export ("stop")]
+		void Stop ();
+
 		// +(NSString *)sessionUrl;
 		[Static]
 		[Export ("sessionUrl")]
@@ -101,6 +106,16 @@ namespace TestFairyLib
 		[Static]
 		[Export ("setScreenName:")]
 		void SetScreenName (string name);
+
+		// +(void)setUserId:(NSString *)userId;
+		[Static]
+		[Export ("setUserId:")]
+		void SetUserId (string userId);
+
+		// +(BOOL)setAttribute:(NSString *)key withValue:(NSString *)value;
+		[Static]
+		[Export ("setAttribute:withValue:")]
+		bool SetScreenName (string key, string value);
 	}
 
 	[Static]
