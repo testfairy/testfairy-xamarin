@@ -43,11 +43,11 @@ nuget: TestFairy.Android.dll TestFairy.iOS.dll
 	mono nuget.exe pack nuget/TestFairy.nuspec -BasePath . -OutputDirectory ./output
 
 install:
-	wget "https://dist.nuget.org/win-x86-commandline/${NUGET_VERSION}/nuget.exe"
-	wget "http://download.mono-project.com/archive/${MONO_VERSION}/macos-10-universal/MonoFramework-MDK-${MONO_VERSION}.macos10.xamarin.universal.pkg"
-	wget "http://download.xamarin.com/XamarinforMac/Mac/xamarin.mac-${XAMARIN_MAC_VERSION}.pkg"
-	wget "http://download.xamarin.com/MonoforAndroid/Mac/xamarin.android-${XAMARIN_ANDROID_VERSION}.pkg"
-	wget "http://download.xamarin.com/MonoTouch/Mac/xamarin.ios-${XAMARIN_IOS_VERSION}.pkg"
+	wget -q "https://dist.nuget.org/win-x86-commandline/${NUGET_VERSION}/nuget.exe"
+	wget -q "http://download.mono-project.com/archive/${MONO_VERSION}/macos-10-universal/MonoFramework-MDK-${MONO_VERSION}.macos10.xamarin.universal.pkg"
+	wget -q "http://download.xamarin.com/XamarinforMac/Mac/xamarin.mac-${XAMARIN_MAC_VERSION}.pkg"
+	wget -q "http://download.xamarin.com/MonoforAndroid/Mac/xamarin.android-${XAMARIN_ANDROID_VERSION}.pkg"
+	wget -q "http://download.xamarin.com/MonoTouch/Mac/xamarin.ios-${XAMARIN_IOS_VERSION}.pkg"
 	curl -s -L -o xpkg.zip https://xampubdl.blob.core.windows.net/xamarin-download/xamarin-components/xamarin-component.zip
 	sudo installer -pkg "MonoFramework-MDK-${MONO_VERSION}.macos10.xamarin.universal.pkg" -target /
 	sudo installer -pkg "xamarin.mac-${XAMARIN_MAC_VERSION}.pkg" -target /
