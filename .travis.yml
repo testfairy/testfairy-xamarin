@@ -21,7 +21,7 @@ script:
   - make
 
 after_deploy:
-  - mono nuget.exe setApiKey ${NUGET_API_KEY} -source https://www.nuget.org
+  - mono nuget.exe setApiKey ${NUGET_API_KEY} -Source https://www.nuget.org/api/v2/package
   - mono nuget.exe push output/TestFairy.Xamarin.${TRAVIS_TAG}.nupkg -Source https://www.nuget.org/api/v2/package
   
 deploy:
