@@ -7,7 +7,7 @@ MONO_VERSION=4.4.0
 XAMARIN_MAC_VERSION=2.8.0.58
 XAMARIN_ANDROID_VERSION=6.0.3-5
 XAMARIN_IOS_VERSION=9.6.1.9
-NUGET_VERSION=v3.4.4
+NUGET_VERSION=v4.5.0
 
 all: nuget component
 	zip -j9 output/TestFairy.Xamarin-Android.${TRAVIS_TAG}.zip output/TestFairy.Android.dll
