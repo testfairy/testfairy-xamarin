@@ -5,7 +5,7 @@ before_install:
 - brew tap AdoptOpenJDK/openjdk
 - brew cask install adoptopenjdk8
 - ls /Library/Java/JavaVirtualMachines/
-- export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home
+- export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
 - wget http://dl.google.com/android/android-sdk_r24.4.1-macosx.zip
 - unzip android-sdk_r24.4.1-macosx.zip
 - export ANDROID_HOME=$PWD/android-sdk-macosx
