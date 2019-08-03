@@ -2,8 +2,8 @@ language: objective-c
 osx_image: xcode7
 
 before_install:
-- brew tap caskroom/versions
-- brew cask install java8
+- brew tap AdoptOpenJDK/openjdk
+- brew cask install adoptopenjdk8
 - ls /Library/Java/JavaVirtualMachines/
 - export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_202.jdk/Contents/Home
 - wget http://dl.google.com/android/android-sdk_r24.4.1-macosx.zip
