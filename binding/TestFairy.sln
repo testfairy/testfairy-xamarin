@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFairy.Android", "TestFairy.Android\TestFairy.Android.csproj", "{F4D49DFD-A1EC-4F6D-9532-F9DCAFD7E8A1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFairy.iOS", "TestFairy.iOS\TestFairy.iOS.csproj", "{ECEE6C5C-A609-480E-B535-56E63710ACC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFairy.Android", "TestFairy.Android\TestFairy.Android.csproj", "{0A0934A0-B08D-403F-8AFF-104BC98ED1B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,19 +15,15 @@ Global
 		{ECEE6C5C-A609-480E-B535-56E63710ACC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECEE6C5C-A609-480E-B535-56E63710ACC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECEE6C5C-A609-480E-B535-56E63710ACC4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F4D49DFD-A1EC-4F6D-9532-F9DCAFD7E8A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F4D49DFD-A1EC-4F6D-9532-F9DCAFD7E8A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F4D49DFD-A1EC-4F6D-9532-F9DCAFD7E8A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F4D49DFD-A1EC-4F6D-9532-F9DCAFD7E8A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A0934A0-B08D-403F-8AFF-104BC98ED1B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A0934A0-B08D-403F-8AFF-104BC98ED1B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A0934A0-B08D-403F-8AFF-104BC98ED1B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A0934A0-B08D-403F-8AFF-104BC98ED1B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
 		$0.DotNetNamingPolicy = $1
-		$1.DirectoryNamespaceAssociation = None
-		$1.ResourceNamePolicy = FileFormatDefault
 		$0.StandardHeader = $2
-		$2.Text = 
-		$2.IncludeInNewFiles = True
 		$0.NameConventionPolicy = $3
 		$3.Rules = $4
 		$4.NamingRule = $5
@@ -153,6 +149,5 @@ Global
 		$24.IncludeInstanceMembers = True
 		$24.IncludeStaticEntities = True
 		$0.VersionControlPolicy = $26
-		$26.inheritsSet = Mono
 	EndGlobalSection
 EndGlobal
