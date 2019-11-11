@@ -99,14 +99,23 @@
 
 /**
  * Hides a specific view from appearing in the video generated.
+ * Holds a weak reference to the view
  *
  * @param view The specific view you wish to hide from screenshots
- *
  */
 + (void)hideView:(UIView *)view;
 
 /**
- * Hides a specific html element from appearing in your UIWebView
+ * Removes a view added to hideView. Useful for table views
+ * which reuse cells, where cells only need to be hidden
+ * conditionally.
+ *
+ * @param view The specific view added to hideView
+ */
++ (void)unhideView:(UIView *)view;
+
+/**
+ * Hides a specific html element from appearing in your WKWebView
  *
  * @param selector The specific selector you wish to hide from screenshots. Multiple selectors can be comma separated
  */
