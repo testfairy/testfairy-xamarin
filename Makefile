@@ -18,19 +18,19 @@ all: nuget
 	zip -j9 output/TestFairy.Xamarin-iOS.${VERSION}.zip output/TestFairy.iOS.dll
 
 clean:
-	msbuild /p:Configuration=Release /t:Clean binding/TestFairy.Android/TestFairy.Android.csproj
-	msbuild /p:Configuration=Release /t:Clean binding/TestFairy.iOS/TestFairy.iOS.csproj
+	/Library/Frameworks/Mono.framework/Commands/msbuild /p:Configuration=Release /t:Clean binding/TestFairy.Android/TestFairy.Android.csproj
+	/Library/Frameworks/Mono.framework/Commands/msbuild /p:Configuration=Release /t:Clean binding/TestFairy.iOS/TestFairy.iOS.csproj
 	rm -rf lib
 	rm -rf output
 
 TestFairy.iOS.dll:
 	mkdir -p output
-	msbuild /p:Configuration=Release binding/TestFairy.iOS/TestFairy.iOS.csproj
+	/Library/Frameworks/Mono.framework/Commands/msbuild/msbuild /p:Configuration=Release binding/TestFairy.iOS/TestFairy.iOS.csproj
 	cp binding/TestFairy.iOS/bin/Release/TestFairy.iOS.dll output/.
 
 TestFairy.Android.dll:
 	mkdir -p output
-	msbuild /p:Configuration=Release binding/TestFairy.Android/TestFairy.Android.csproj
+	/Library/Frameworks/Mono.framework/Commands/msbuild/msbuild /p:Configuration=Release binding/TestFairy.Android/TestFairy.Android.csproj
 	cp binding/TestFairy.Android/bin/Release/TestFairy.Android.dll output/.
 
 nuget: TestFairy.iOS.dll TestFairy.Android.dll
