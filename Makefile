@@ -9,7 +9,7 @@ XAMARIN_ANDROID_VERSION=6.0.3-5
 XAMARIN_IOS_VERSION=9.6.1.9
 NUGET_VERSION=v4.5.0
 
-all: nuget component
+all: nuget
 	zip -j9 output/TestFairy.Xamarin-Android.${TRAVIS_TAG}.zip output/TestFairy.Android.dll
 	zip -j9 output/TestFairy.Xamarin-iOS.${VERSION}.zip output/TestFairy.iOS.dll
 
@@ -29,16 +29,7 @@ TestFairy.Android.dll:
 	xbuild /p:Configuration=Release binding/TestFairy.Android/TestFairy.Android.csproj
 	cp binding/TestFairy.Android/bin/Release/TestFairy.Android.dll output/.
 
-component: TestFairy.Android.dll TestFairy.iOS.dll
-	mkdir -p lib/android
-	mkdir -p lib/ios-unified
-	cp binding/TestFairy.Android/bin/Release/TestFairy.Android.dll lib/android/.
-	cp binding/TestFairy.iOS/bin/Release/TestFairy.iOS.dll lib/ios-unified/.
-	sed -i '' "s/^version:.*/version: ${VERSION}/" component/component.yaml
-	mono xamarin-component.exe package component
-	mv component/TestFairy.Xamarin-${VERSION}.xam output/.
-
-nuget: TestFairy.Android.dll TestFairy.iOS.dll
+nuget: TestFairy.iOS.dll TestFairy.Android.dll
 	sed -i '' -E "s/<version>[^<]+<\/version>/<version>${VERSION}<\/version>/g" nuget/TestFairy.nuspec
 	mono nuget.exe pack nuget/TestFairy.nuspec -BasePath . -OutputDirectory ./output
 
