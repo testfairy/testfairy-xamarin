@@ -249,6 +249,14 @@
 + (void)takeScreenshot;
 
 /**
+ * Adds a screenshot to the current moment in session.
+ * Overrides the current screen recording system
+ *
+ * @param image Screenshot to add
+ */
++ (void)addScreenshot:(UIImage *)image;
+
+/**
  * Set the name of the current screen. Useful for single page
  * applications which use a single UIViewController.
  *
