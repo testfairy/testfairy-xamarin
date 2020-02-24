@@ -7,4 +7,5 @@
   This sample removes the method: android.support.v4.content.CursorLoader.loadInBackground:
   <remove-node path="/api/package[@name='android.support.v4.content']/class[@name='CursorLoader']/method[@name='loadInBackground']" />
   -->
+    <attr path="/api/package[@name='com.testfairy.utils']/class[@name='A']" name="managedName">AS</attr>
 </metadata>
