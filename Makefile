@@ -13,7 +13,7 @@ XAMARIN_ANDROID_VERSION=https://download.visualstudio.microsoft.com/download/pr/
 # From: https://github.com/xamarin/xamarin-macios/releases (Replace XAMARIN_IOS_VERSION with latest version of xamarin.ios)
 XAMARIN_IOS_VERSION=http://download.xamarin.com/MonoTouch/Mac/xamarin.ios-13.14.1.30.pkg
 
-MONO=/Library//Frameworks//Mono.framework/Versions/6.8.0/bin/mono
+MONO=/Library/Frameworks/Mono.framework/Versions/6.8.0/bin/mono
 MSBUILD=/Library/Frameworks/Mono.framework//Versions/6.8.0/bin/msbuild
 
 all: nuget
