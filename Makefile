@@ -13,6 +13,7 @@ XAMARIN_ANDROID_VERSION=https://download.visualstudio.microsoft.com/download/pr/
 # From: https://github.com/xamarin/xamarin-macios/releases (Replace XAMARIN_IOS_VERSION with latest version of xamarin.ios)
 XAMARIN_IOS_VERSION=http://download.xamarin.com/MonoTouch/Mac/xamarin.ios-13.14.1.30.pkg
 
+MONO=/Library//Frameworks//Mono.framework/Versions/6.8.0/bin/mono
 MSBUILD=/Library/Frameworks/Mono.framework//Versions/6.8.0/bin/msbuild
 
 all: nuget
@@ -37,7 +38,7 @@ TestFairy.Android.dll:
 
 nuget: TestFairy.iOS.dll TestFairy.Android.dll
         sed -i '' -E "s/<version>[^<]+<\/version>/<version>${VERSION}<\/version>/g" nuget/TestFairy.nuspec
-        mono nuget.exe pack nuget/TestFairy.nuspec -BasePath . -OutputDirectory ./output
+        ${MONO} nuget.exe pack nuget/TestFairy.nuspec -BasePath . -OutputDirectory ./output
 
 install:
         wget -nv "https://dist.nuget.org/win-x86-commandline/${NUGET_VERSION}/nuget.exe"
