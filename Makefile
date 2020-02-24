@@ -36,7 +36,6 @@ TestFairy.Android.dll:
         cp binding/TestFairy.Android/bin/Release/TestFairy.Android.dll output/.
 
 nuget: TestFairy.iOS.dll TestFairy.Android.dll
-        xbuild --version
         sed -i '' -E "s/<version>[^<]+<\/version>/<version>${VERSION}<\/version>/g" nuget/TestFairy.nuspec
         mono nuget.exe pack nuget/TestFairy.nuspec -BasePath . -OutputDirectory ./output
 
