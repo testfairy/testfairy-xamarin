@@ -25,8 +25,8 @@ script:
   - make
 
 after_deploy:
-  - /Library/Frameworks//Mono.framework/Versions/6.8.0/bin/mono nuget.exe setApiKey ${NUGET_API_KEY} -Source https://www.nuget.org/api/v2/package
-  - /Library/Frameworks//Mono.framework/Versions/6.8.0/bin/mono nuget.exe push output/TestFairy.Xamarin.${TRAVIS_TAG}.nupkg -Source https://www.nuget.org/api/v2/package
+  - /Library/Frameworks/Mono.framework/Versions/6.8.0/bin/mono nuget.exe setApiKey ${NUGET_API_KEY} -Source https://www.nuget.org/api/v2/package
+  - /Library/Frameworks/Mono.framework/Versions/6.8.0/bin/mono nuget.exe push output/TestFairy.Xamarin.${TRAVIS_TAG}.nupkg -Source https://www.nuget.org/api/v2/package
   
 deploy:
   provider: releases
