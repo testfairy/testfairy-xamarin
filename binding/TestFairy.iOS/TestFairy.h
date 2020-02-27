@@ -161,6 +161,15 @@
 + (void)sendUserFeedback:(NSString *)feedbackString;
 
 /**
+ * Send a feedback on behalf of the user. Call when using a in-house
+ * feedback view controller with a custom design and feel. Feedback will
+ * be associated with the current session.
+ *
+ * @param feedbackString Feedback text
+ */
++ (void)sendUserFeedback:(NSString *)appToken text:(NSString *)text screenshot:(UIImage *)image;
+
+/**
  * Proxy didUpdateLocation delegate values and these
  * locations will appear in the recorded sessions. Useful for debugging
  * actual long/lat values against what the user sees on screen.
