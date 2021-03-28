@@ -12,7 +12,8 @@ XAMARIN_MAC_VERSION=https://dl.xamarin.com/XamarinforMac/Mac/xamarin.mac-2.8.0.5
 # From: https://github.com/xamarin/xamarin-android/blob/master/README.md#downloads
 XAMARIN_ANDROID_VERSION=https://download.visualstudio.microsoft.com/download/pr/fc059472-448e-4680-a3cd-e3ba032991c2/172ae06981e5555a4113c016179e6f2b/xamarin.android-10.1.3.7.pkg
 # From: https://github.com/xamarin/xamarin-macios/releases (Replace XAMARIN_IOS_VERSION with latest version of xamarin.ios)
-XAMARIN_IOS_VERSION=http://download.xamarin.com/MonoTouch/Mac/xamarin.ios-13.14.1.30.pkg
+# Also: https://github.com/Homebrew/homebrew-cask/blob/9d334e4b390733cf4d41adb02848f71e32d1aa06/Casks/xamarin-ios.rb
+XAMARIN_IOS_VERSION=https://dl.xamarin.com/MonoTouch/Mac/xamarin.ios-13.14.1.30.pkg
 
 MONO=/Library/Frameworks/Mono.framework/Versions/6.8.0/bin/mono
 MSBUILD=/Library/Frameworks/Mono.framework//Versions/6.8.0/bin/msbuild
