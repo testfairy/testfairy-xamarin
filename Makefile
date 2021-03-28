@@ -7,7 +7,8 @@ endif
 NUGET_VERSION=v4.5.0
 # From: https://www.mono-project.com/download/stable/
 MONO_VERSION=https://download.mono-project.com/archive/6.8.0/macos-10-universal/MonoFramework-MDK-6.8.0.105.macos10.xamarin.universal.pkg
-XAMARIN_MAC_VERSION=http://download.xamarin.com/XamarinforMac/Mac/xamarin.mac-2.8.0.58.pkg
+# From https://github.com/Homebrew/homebrew-cask/blob/29410b73602e18627a528454057d112f36e8d69c/Casks/xamarin-mac.rb
+XAMARIN_MAC_VERSION=https://dl.xamarin.com/XamarinforMac/Mac/xamarin.mac-2.8.0.58.pkg
 # From: https://github.com/xamarin/xamarin-android/blob/master/README.md#downloads
 XAMARIN_ANDROID_VERSION=https://download.visualstudio.microsoft.com/download/pr/fc059472-448e-4680-a3cd-e3ba032991c2/172ae06981e5555a4113c016179e6f2b/xamarin.android-10.1.3.7.pkg
 # From: https://github.com/xamarin/xamarin-macios/releases (Replace XAMARIN_IOS_VERSION with latest version of xamarin.ios)
