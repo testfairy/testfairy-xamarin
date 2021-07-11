@@ -6,9 +6,63 @@ on:
 
 jobs:
   release:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
+    timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v2
-      - name: Package SDK
-        run: |
-          echo "Releasing Xamarin"
+    - uses: actions/checkout@v2
+    - uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v2
+
+    - name: Set default Xamarin SDK versions
+      run: |
+        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=14.10 --android=11.1 --mac=7.4
+
+    - name: Set default Xcode 12.3
+      run: |
+        XCODE_ROOT=/Applications/Xcode_12.3.0.app
+        echo "MD_APPLE_SDK_ROOT=$XCODE_ROOT" >> $GITHUB_ENV
+        sudo xcode-select -s $XCODE_ROOT
+
+    - name: Setup .NET Core SDK 5.0.x
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.0.x'
+
+    - name: Build Xamarin Android Package
+      run: |
+        mkdir -p output
+        msbuild /p:Configuration=Release binding/TestFairy.Android/TestFairy.Android.csproj
+        cp binding/TestFairy.Android/bin/Release/TestFairy.Android.dll output/.
+
+    - name: Build Xamarin iOS Package
+      run: |
+        mkdir -p output
+        msbuild /p:Configuration=Release binding/TestFairy.iOS/TestFairy.iOS.csproj
+        cp binding/TestFairy.iOS/bin/Release/TestFairy.iOS.dll output/.
+
+    - name: Upload to NuGET
+      run: |
+        echo ${GITHUB_REF##*/} > RELEASE_TAG
+        zip -j9 output/TestFairy.Xamarin-Android.zip output/TestFairy.Android.dll
+        zip -j9 output/TestFairy.Xamarin-iOS.zip output/TestFairy.iOS.dll
+        sed -i '' -E "s/<version>[^<]+<\/version>/<version>$(cat RELEASE_TAG)<\/version>/g" nuget/TestFairy.nuspec
+        nuget pack nuget/TestFairy.nuspec -BasePath . -OutputDirectory ./output
+        nuget setApiKey ${NUGET_API_KEY} -Source https://www.nuget.org/api/v2/package
+        nuget push output/TestFairy.Xamarin.$(cat RELEASE_TAG).nupkg -Source https://www.nuget.org/api/v2/package
+        cp output/TestFairy.Xamarin.$(cat RELEASE_TAG).nupkg output/TestFairy.Xamarin.nupkg
+      env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+
+    - name: Add Artifacts to Github Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: |
+          output/TestFairy.Xamarin.nupkg
+          output/TestFairy.Xamarin-iOS.zip
+          output/TestFairy.Xamarin-Android.zip
+    env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
