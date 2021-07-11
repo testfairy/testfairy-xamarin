@@ -12,32 +12,37 @@ jobs:
         java-version: 1.8
     - name: Setup Android SDK
       uses: android-actions/setup-android@v2
-    - name: Install MONO Universal
+
+    - name: Set default Xamarin SDK versions
       run: |
-        export MONO_VERSION=https://download.mono-project.com/archive/6.8.0/macos-10-universal/MonoFramework-MDK-6.8.0.105.macos10.xamarin.universal.pkg
-        wget -O xamarin.universal.pkg -nv "${MONO_VERSION}"
-        ls -lsrt xamarin.universal.pkg
-        echo "Downloaded xamarin.universal.pkg, installing to /"
-        sudo installer -pkg "xamarin.universal.pkg" -target /
-    - name: Install MONO for OSX
+        $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=14.10 --android=11.1 --mac=7.4
+
+    - name: Set default Xcode 12.3
       run: |
-        export XAMARIN_MAC_VERSION=https://dl.xamarin.com/XamarinforMac/Mac/xamarin.mac-2.8.0.58.pkg
-        wget -O xamarin.mac.pkg -nv "${XAMARIN_MAC_VERSION}"
-        sudo installer -pkg "xamarin.mac.pkg" -target /
-    - name: Install MONO for iOS
+        XCODE_ROOT=/Applications/Xcode_12.3.0.app
+        echo "MD_APPLE_SDK_ROOT=$XCODE_ROOT" >> $GITHUB_ENV
+        sudo xcode-select -s $XCODE_ROOT
+
+    - name: Setup .NET Core SDK 5.0.x
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.0.x'
+
+    - name: Build Xamarin Android Package
       run: |
-        export XAMARIN_IOS_VERSION=https://dl.xamarin.com/MonoTouch/Mac/xamarin.ios-13.14.1.30.pkg
-        wget -O xamarin.ios.pkg -nv "${XAMARIN_IOS_VERSION}"
-        sudo installer -pkg "xamarin.ios.pkg" -target /
-    - name: Install MONO for Android
+        mkdir -p output
+        msbuild /p:Configuration=Release binding/TestFairy.Android/TestFairy.Android.csproj
+        cp binding/TestFairy.Android/bin/Release/TestFairy.Android.dll output/.
+
+    - name: Build Xamarin iOS Package
       run: |
-        export XAMARIN_ANDROID_VERSION=https://download.visualstudio.microsoft.com/download/pr/fc059472-448e-4680-a3cd-e3ba032991c2/172ae06981e5555a4113c016179e6f2b/xamarin.android-10.1.3.7.pkg
-        wget -O xamarin.android.pkg -nv "${XAMARIN_ANDROID_VERSION}"
-        sudo installer -pkg "xamarin.android.pkg" -target /
-    - name: Build Xamarin Package
-      run: make
+        mkdir -p output
+        msbuild /p:Configuration=Release binding/TestFairy.iOS/TestFairy.iOS.csproj
+        cp binding/TestFairy.iOS/bin/Release/TestFairy.iOS.dll output/.
+
     - name: Upload to NuGET
       run: |
+        ls -lsrt output/.
         export VERSION=2.0.0
         export MONO=/Library/Frameworks/Mono.framework/Versions/6.8.0/bin/mono
         zip -j9 output/TestFairy.Xamarin-Android.zip output/TestFairy.Android.dll
