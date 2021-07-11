@@ -43,10 +43,10 @@ jobs:
     - name: Upload to NuGET
       run: |
         ls -lsrt output/.
-        export VERSION=2.0.0
-        export MONO=/Library/Frameworks/Mono.framework/Versions/6.8.0/bin/mono
         zip -j9 output/TestFairy.Xamarin-Android.zip output/TestFairy.Android.dll
         zip -j9 output/TestFairy.Xamarin-iOS.zip output/TestFairy.iOS.dll
+        ls -lsrt output/.
+        export VERSION=2.0.0
         sed -i '' -E "s/<version>[^<]+<\/version>/<version>${VERSION}<\/version>/g" nuget/TestFairy.nuspec
-        ${MONO} nuget.exe pack nuget/TestFairy.nuspec -BasePath . -OutputDirectory ./output
-        ls -lsrt output/TestFairy.Xamarin.nupkg
+        nuget pack nuget/TestFairy.nuspec -BasePath . -OutputDirectory ./output
+        ls -lsrt output/.
