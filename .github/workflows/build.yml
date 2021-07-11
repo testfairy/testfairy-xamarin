@@ -16,6 +16,8 @@ jobs:
       run: |
         export MONO_VERSION=https://download.mono-project.com/archive/6.8.0/macos-10-universal/MonoFramework-MDK-6.8.0.105.macos10.xamarin.universal.pkg
         wget -O xamarin.universal.pkg -nv "${MONO_VERSION}"
+        ls -lsrt xamarin.universal.pkg
+        echo "Downloaded xamarin.universal.pkg, installing to /"
         sudo installer -pkg "xamarin.universal.pkg" -target /
     - name: Install MONO for OSX
       run: |
