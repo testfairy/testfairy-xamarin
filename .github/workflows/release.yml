@@ -1,0 +1,14 @@
+name: Release TestFairy Xamarin SDK
+on:
+  push:
+    tags:
+      - '*.*.*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Package SDK
+        run: |
+          echo "Releasing Xamarin"

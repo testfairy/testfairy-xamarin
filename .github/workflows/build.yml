@@ -1,0 +1,27 @@
+name: Build TestFairy for Xamarin 
+on: push
+
+jobs:
+  build:
+    runs-on: macos-latest
+    timeout-minutes: 30
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v2
+    - name: Install Dependencies
+      run: make install
+    - name: Build Xamarin Package
+      run: make
+    - name: Upload to NuGET
+      run: |
+        export VERSION=2.0.0
+        export MONO=/Library/Frameworks/Mono.framework/Versions/6.8.0/bin/mono
+      	zip -j9 output/TestFairy.Xamarin-Android.zip output/TestFairy.Android.dll
+	      zip -j9 output/TestFairy.Xamarin-iOS.zip output/TestFairy.iOS.dll
+        sed -i '' -E "s/<version>[^<]+<\/version>/<version>${VERSION}<\/version>/g" nuget/TestFairy.nuspec
+	      ${MONO} nuget.exe pack nuget/TestFairy.nuspec -BasePath . -OutputDirectory ./output
+        ls -lsrt output/TestFairy.Xamarin.nupkg
