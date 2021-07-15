@@ -43,7 +43,7 @@ jobs:
       run: |
         IOS_VERSION=1.29.0
         curl -s -L https://s3.amazonaws.com/testfairy/sdk/TestFairySDK-${IOS_VERSION}.zip -o  TestFairySDK.zip
-        unzip -o -d testfairy-xamarin/binding/TestFairy.iOS TestFairySDK.zip TestFairy.h libTestFairy.a
+        unzip -o -d binding/TestFairy.iOS TestFairySDK.zip TestFairy.h libTestFairy.a
         rm -f TestFairySDK.zip
         mkdir -p output
         msbuild /p:Configuration=Release binding/TestFairy.iOS/TestFairy.iOS.csproj
