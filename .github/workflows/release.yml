@@ -41,7 +41,7 @@ jobs:
 
     - name: Build Xamarin iOS Package
       run: |
-        IOS_VERSION=1.29.1
+        IOS_VERSION=1.29.2
         curl -s -L https://s3.amazonaws.com/testfairy/sdk/TestFairySDK-${IOS_VERSION}.zip -o  TestFairySDK.zip
         unzip -o -d binding/TestFairy.iOS TestFairySDK.zip TestFairy.h libTestFairy.a
         rm -f TestFairySDK.zip
