@@ -7,6 +7,8 @@ on:
 jobs:
   build:
     runs-on: macos-latest
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_13.3.1.app
     timeout-minutes: 30
     steps:
     - uses: actions/checkout@v2
@@ -19,12 +21,6 @@ jobs:
     - name: Set default Xamarin SDK versions
       run: |
         $VM_ASSETS/select-xamarin-sdk-v2.sh --mono=6.12 --ios=14.10 --android=11.1 --mac=7.4
-
-    - name: Set default Xcode 12.3
-      run: |
-        XCODE_ROOT=/Applications/Xcode_13.3.1.app
-        echo "MD_APPLE_SDK_ROOT=$XCODE_ROOT" >> $GITHUB_ENV
-        sudo xcode-select -s $XCODE_ROOT
 
     - name: Setup .NET Core SDK 5.0.x
       uses: actions/setup-dotnet@v1
