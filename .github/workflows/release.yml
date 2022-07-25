@@ -45,6 +45,17 @@ jobs:
         msbuild /p:Configuration=Release binding/TestFairy.iOS/TestFairy.iOS.csproj
         cp binding/TestFairy.iOS/bin/Release/TestFairy.iOS.dll output/.
 
+    - name: Add Artifacts to Github Release
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        files: |
+          output/TestFairy.Xamarin.nupkg
+          output/TestFairy.Xamarin-iOS.zip
+          output/TestFairy.Xamarin-Android.zip
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Upload to NuGET
       run: |
         echo ${GITHUB_REF##*/} > RELEASE_TAG
@@ -58,13 +69,3 @@ jobs:
       env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
 
-    - name: Add Artifacts to Github Release
-      uses: softprops/action-gh-release@v1
-      if: startsWith(github.ref, 'refs/tags/')
-      with:
-        files: |
-          output/TestFairy.Xamarin.nupkg
-          output/TestFairy.Xamarin-iOS.zip
-          output/TestFairy.Xamarin-Android.zip
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
