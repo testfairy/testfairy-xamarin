@@ -72,5 +72,5 @@ jobs:
           output/TestFairy.Xamarin.nupkg
           output/TestFairy.Xamarin-iOS.zip
           output/TestFairy.Xamarin-Android.zip
-    env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
